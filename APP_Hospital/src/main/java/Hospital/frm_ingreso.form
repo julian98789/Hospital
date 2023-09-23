@@ -38,10 +38,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane2" min="-2" pref="298" max="-2" attributes="0"/>
-                  <Component id="txt_identificacion" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
+                  <Component id="txt_id" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
                   <Component id="txt_hora" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
-                  <Component id="txt_nombres_completos" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
+                  <Component id="txt_nombres" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
                   <Component id="txt_edad" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
                   <Component id="txt_fecha" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
               </Group>
@@ -60,12 +60,12 @@
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txt_identificacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_id" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txt_nombres_completos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_nombres" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -201,12 +201,12 @@
         <Property name="text" type="java.lang.String" value="Causa:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_nombres_completos">
+    <Component class="javax.swing.JTextField" name="txt_nombres">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nombres_completosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nombresActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_identificacion">
+    <Component class="javax.swing.JTextField" name="txt_id">
     </Component>
     <Component class="javax.swing.JTextField" name="txt_edad">
     </Component>
@@ -285,16 +285,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_nuevoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_registrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Registrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_registrarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_consultar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_consultarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_actualizar">
           <Properties>
@@ -305,6 +314,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_salirActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

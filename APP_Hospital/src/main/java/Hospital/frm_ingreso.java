@@ -1,18 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Hospital;
 
-/**
- *
- * @author julian
- */
+import javax.swing.JOptionPane;
+
+
 public class frm_ingreso extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frm_hospital
-     */
+   cls_paciente pacientes [] = new cls_paciente [50];
+   int int_posiciones = 0;
+   boolean sw;
+   int pos;
+   
     public frm_ingreso() {
         initComponents();
     }
@@ -35,8 +33,8 @@ public class frm_ingreso extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txt_nombres_completos = new javax.swing.JTextField();
-        txt_identificacion = new javax.swing.JTextField();
+        txt_nombres = new javax.swing.JTextField();
+        txt_id = new javax.swing.JTextField();
         txt_edad = new javax.swing.JTextField();
         txt_fecha = new javax.swing.JTextField();
         txt_hora = new javax.swing.JTextField();
@@ -97,9 +95,9 @@ public class frm_ingreso extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Causa:");
 
-        txt_nombres_completos.addActionListener(new java.awt.event.ActionListener() {
+        txt_nombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nombres_completosActionPerformed(evt);
+                txt_nombresActionPerformed(evt);
             }
         });
 
@@ -112,14 +110,34 @@ public class frm_ingreso extends javax.swing.JFrame {
         jScrollPane2.setViewportView(txt_causa);
 
         btn_nuevo.setText("Nuevo");
+        btn_nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nuevoActionPerformed(evt);
+            }
+        });
 
         btn_registrar.setText("Registrar");
+        btn_registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_registrarActionPerformed(evt);
+            }
+        });
 
         btn_consultar.setText("Consultar");
+        btn_consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultarActionPerformed(evt);
+            }
+        });
 
         btn_actualizar.setText("Actualizar");
 
         btn_salir.setText("Salir");
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -169,10 +187,10 @@ public class frm_ingreso extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_identificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_hora, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_nombres_completos, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
@@ -188,11 +206,11 @@ public class frm_ingreso extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txt_identificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(txt_nombres_completos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -222,9 +240,65 @@ public class frm_ingreso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_nombres_completosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombres_completosActionPerformed
+    private void txt_nombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nombres_completosActionPerformed
+    }//GEN-LAST:event_txt_nombresActionPerformed
+    private void fnt_limpiarControles(){
+        txt_causa.setText("");
+        txt_edad.setText("");
+        txt_fecha.setText("");
+        txt_hora.setText("");
+        txt_id.setText("");
+        txt_nombres.setText("");
+        txt_sintomas.setText("");
+        txt_causa.requestFocus();
+    }
+    
+    private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
+        fnt_limpiarControles();
+    }//GEN-LAST:event_btn_nuevoActionPerformed
+
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
+        if(txt_causa.getText().equals("")|| txt_edad.getText().equals("")||txt_causa.getText().equals("")||txt_hora.getText().equals("")||
+           txt_id.getText().equals("")||txt_nombres.getText().equals("")||txt_sintomas.getText().equals("")){
+            JOptionPane.showConfirmDialog(null, "fatan datos", "Error", 
+            JOptionPane.ERROR_MESSAGE);
+        }else{
+            pacientes[ int_posiciones] = new cls_paciente(txt_nombres.getText(),Integer.parseInt(txt_edad.getText()),
+            txt_id.getText(),txt_sintomas.getText(),txt_fecha.getText(),txt_hora.getText(),txt_causa.getText());
+            int_posiciones+=1;
+            JOptionPane.showConfirmDialog(null, "paciente registrado", "registro", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btn_registrarActionPerformed
+
+    private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
+       sw = false;
+       pos= 0;
+       
+        for (int i = 0; i < int_posiciones; i++) {
+            if(txt_id.getText().equals(pacientes[i].getStr_id())){
+                sw= true;
+                pos = i;
+                break;
+            }
+            
+        }
+        if( sw = false){
+            JOptionPane.showConfirmDialog(null, "No se encontraronregistron" + "registro",
+       "Consultar", JOptionPane.ERROR_MESSAGE);
+        }else{
+                txt_causa.setText(pacientes[pos].getStr_causa());
+                txt_edad.setText(""+pacientes[pos].getInt_edad());
+                txt_fecha.setText(pacientes[pos].getStr_fecha());
+                txt_hora.setText(pacientes[pos].getStr_hora());
+                txt_nombres.setText(pacientes[pos].getStr_nombres_completos());
+                txt_sintomas.setText(pacientes[pos].getStr_sintomas());
+            }
+    }//GEN-LAST:event_btn_consultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,8 +358,8 @@ public class frm_ingreso extends javax.swing.JFrame {
     private javax.swing.JTextField txt_edad;
     private javax.swing.JTextField txt_fecha;
     private javax.swing.JTextField txt_hora;
-    private javax.swing.JTextField txt_identificacion;
-    private javax.swing.JTextField txt_nombres_completos;
+    private javax.swing.JTextField txt_id;
+    private javax.swing.JTextField txt_nombres;
     private javax.swing.JTextArea txt_sintomas;
     // End of variables declaration//GEN-END:variables
 }
