@@ -265,13 +265,13 @@ public class frm_ingreso extends javax.swing.JFrame {
     private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
         if(txt_causa.getText().equals("")|| txt_edad.getText().equals("")||txt_causa.getText().equals("")||txt_hora.getText().equals("")||
            txt_id.getText().equals("")||txt_nombres.getText().equals("")||txt_sintomas.getText().equals("")){
-            JOptionPane.showConfirmDialog(null, "fatan datos", "Error", 
+            JOptionPane.showMessageDialog(null, "fatan datos", "Error", 
             JOptionPane.ERROR_MESSAGE);
         }else{
             pacientes[ int_posiciones] = new cls_paciente(txt_nombres.getText(),Integer.parseInt(txt_edad.getText()),
             txt_id.getText(),txt_sintomas.getText(),txt_fecha.getText(),txt_hora.getText(),txt_causa.getText());
             int_posiciones+=1;
-            JOptionPane.showConfirmDialog(null, "paciente registrado", "registro", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "paciente registrado", "registro", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btn_registrarActionPerformed
 
@@ -288,7 +288,7 @@ public class frm_ingreso extends javax.swing.JFrame {
             
         }
         if( sw = false){
-            JOptionPane.showConfirmDialog(null, "No se encontraronregistron" + "registro",
+            JOptionPane.showMessageDialog(null, "No se encontraronregistron" + "registro",
        "Consultar", JOptionPane.ERROR_MESSAGE);
         }else{
                 txt_causa.setText(pacientes[pos].getStr_causa());
